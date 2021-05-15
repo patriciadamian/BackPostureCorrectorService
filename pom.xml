@@ -18,9 +18,9 @@
   <description>Back Posture Corrector</description>
   <packaging>jar</packaging>
 
-<!--  <properties>-->
-<!--    <java.version>11</java.version>-->
-<!--  </properties>-->
+  <properties>
+    <java.version>11</java.version>
+  </properties>
 
   <dependencies>
     <dependency>
