@@ -27,26 +27,14 @@ public class BackPostureCorrectorResource {
 
   @PostMapping(path = "/register")
   public ResponseEntity register(@RequestBody RegisterDto registerDto) {
-    try {
-      var result = userService.register(registerDto);
-      return ResponseEntity.ok().body(result);
-    } catch (Exception e) {
-      var message = e.getMessage();
-      if (e instanceof DataIntegrityViolationException) {
-        message = "Email must be unique!";
-      }
-      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(message);
-    }
+    var result = userService.register(registerDto);
+    return ResponseEntity.ok().body(result);
   }
 
   @PostMapping(path = "/login")
   public ResponseEntity login(@RequestBody LoginDto loginDto) {
-    try {
-      var result = userService.login(loginDto);
-      return ResponseEntity.ok().body(result);
-    } catch (Exception e) {
-      return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
-    }
+    var result = userService.login(loginDto);
+    return ResponseEntity.ok().body(result);
   }
 
   @GetMapping(path = "/users/")
