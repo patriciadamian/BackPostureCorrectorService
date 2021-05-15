@@ -1,1 +1,0 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.degree.back.posture.corrector.BackPostureCorrectorApplication
