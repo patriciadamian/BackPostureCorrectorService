@@ -5,8 +5,6 @@ import com.degree.back.posture.corrector.api.dto.RegisterDto;
 import com.degree.back.posture.corrector.repository.entity.UserEntity;
 import com.degree.back.posture.corrector.service.UserService;
 import java.util.List;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
