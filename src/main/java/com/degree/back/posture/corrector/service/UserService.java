@@ -9,7 +9,6 @@ import com.degree.back.posture.corrector.api.dto.RegisterDto;
 import com.degree.back.posture.corrector.repository.UserRepository;
 import com.degree.back.posture.corrector.repository.entity.UserEntity;
 import java.util.List;
-import java.util.Optional;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +22,7 @@ public class UserService {
   @Transactional
   public UserEntity register(RegisterDto registerDto) {
     try {
-      UserEntity result = userRepository.save(registerDto.toUserEntity());
+      var result = userRepository.save(registerDto.toUserEntity());
       log.info("User successfully registered!");
       return result;
     } catch (Exception e) {
@@ -34,12 +33,12 @@ public class UserService {
   @Transactional
   public String login(LoginDto loginDto) {
     try {
-      Optional<UserEntity> result = userRepository.findByEmail(loginDto.getEmail());
+      var result = userRepository.findByEmail(loginDto.getEmail());
       if (result.isEmpty()) {
         throw new BpcException("User with email " + loginDto.getEmail() + " not found in db!",
             LOGIN_ERROR);
       } else {
-        UserEntity user = result.get();
+        var user = result.get();
         if (user.getPassword().equals(loginDto.getPassword())) {
           return JwtService.create(user);
         } else {

@@ -25,19 +25,19 @@ public class BackPostureCorrectorResource {
 
   @PostMapping(path = "/register")
   public ResponseEntity register(@RequestBody RegisterDto registerDto) {
-    UserEntity result = userService.register(registerDto);
+    var result = userService.register(registerDto);
     return ResponseEntity.ok().body(result);
   }
 
   @PostMapping(path = "/login")
   public ResponseEntity login(@RequestBody LoginDto loginDto) {
-    String result = userService.login(loginDto);
+    var result = userService.login(loginDto);
     return ResponseEntity.ok().body(result);
   }
 
   @GetMapping(path = "/users/")
   public ResponseEntity<List<UserEntity>> getAllUsers() {
-    List<UserEntity> result = userService.getAllUsers();
+    var result = userService.getAllUsers();
     return ResponseEntity.ok().body(result);
   }
 

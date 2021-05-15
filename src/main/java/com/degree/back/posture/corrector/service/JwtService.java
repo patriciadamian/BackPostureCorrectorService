@@ -14,9 +14,9 @@ public class JwtService {
   private static final byte[] key = TextCodec.BASE64.decode("Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=");
 
   static String create(UserEntity userEntity) {
-    Date currentDate = new Date();
-    Date expirationDate = new Date();
-    Calendar cal = Calendar.getInstance();
+    var currentDate = new Date();
+    var expirationDate = new Date();
+    var cal = Calendar.getInstance();
     cal.setTime(expirationDate);
     cal.add(Calendar.DATE, 1);
     expirationDate = cal.getTime();
