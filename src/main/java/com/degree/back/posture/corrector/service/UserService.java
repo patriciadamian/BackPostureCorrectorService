@@ -6,6 +6,7 @@ import static com.degree.back.posture.corrector.ErrorCode.*;
 import com.degree.back.posture.corrector.BpcException;
 import com.degree.back.posture.corrector.api.dto.LoginDto;
 import com.degree.back.posture.corrector.api.dto.RegisterDto;
+import com.degree.back.posture.corrector.api.dto.TokenDto;
 import com.degree.back.posture.corrector.repository.UserRepository;
 import com.degree.back.posture.corrector.repository.entity.UserEntity;
 import java.util.List;
@@ -31,7 +32,7 @@ public class UserService {
   }
 
   @Transactional
-  public String login(LoginDto loginDto) {
+  public TokenDto login(LoginDto loginDto) {
     try {
       var result = userRepository.findByEmail(loginDto.getEmail());
       if (result.isEmpty()) {
@@ -40,7 +41,7 @@ public class UserService {
       } else {
         var user = result.get();
         if (user.getPassword().equals(loginDto.getPassword())) {
-          return JwtService.create(user);
+          return new TokenDto(JwtService.create(user));
         } else {
           throw new BpcException("Email and password combination is not correct", LOGIN_ERROR);
         }

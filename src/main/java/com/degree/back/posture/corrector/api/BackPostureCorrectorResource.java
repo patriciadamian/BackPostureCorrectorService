@@ -2,6 +2,7 @@ package com.degree.back.posture.corrector.api;
 
 import com.degree.back.posture.corrector.api.dto.LoginDto;
 import com.degree.back.posture.corrector.api.dto.RegisterDto;
+import com.degree.back.posture.corrector.api.dto.TokenDto;
 import com.degree.back.posture.corrector.repository.entity.UserEntity;
 import com.degree.back.posture.corrector.service.UserService;
 import java.util.List;
@@ -24,13 +25,13 @@ public class BackPostureCorrectorResource {
   }
 
   @PostMapping(path = "/register")
-  public ResponseEntity register(@RequestBody RegisterDto registerDto) {
+  public ResponseEntity<UserEntity> register(@RequestBody RegisterDto registerDto) {
     var result = userService.register(registerDto);
     return ResponseEntity.ok().body(result);
   }
 
   @PostMapping(path = "/login")
-  public ResponseEntity login(@RequestBody LoginDto loginDto) {
+  public ResponseEntity<TokenDto> login(@RequestBody LoginDto loginDto) {
     var result = userService.login(loginDto);
     return ResponseEntity.ok().body(result);
   }
