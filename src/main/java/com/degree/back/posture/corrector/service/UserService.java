@@ -77,4 +77,14 @@ public class UserService {
       throw new BpcException("Update operation failed!", GENERIC_ERROR_CODE);
     }
   }
+
+  @Transactional
+  public void delete(Long id) {
+    try {
+      userRepository.deleteById(id);
+    } catch (Exception e) {
+      throw new BpcException("Update operation failed!", GENERIC_ERROR_CODE);
+    }
+  }
+
 }
