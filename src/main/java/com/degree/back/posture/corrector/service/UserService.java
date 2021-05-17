@@ -7,6 +7,7 @@ import com.degree.back.posture.corrector.BpcException;
 import com.degree.back.posture.corrector.api.dto.LoginDto;
 import com.degree.back.posture.corrector.api.dto.RegisterDto;
 import com.degree.back.posture.corrector.api.dto.TokenDto;
+import com.degree.back.posture.corrector.api.dto.UserDto;
 import com.degree.back.posture.corrector.repository.UserRepository;
 import com.degree.back.posture.corrector.repository.entity.UserEntity;
 import java.util.List;
@@ -61,5 +62,19 @@ public class UserService {
     return userRepository.findById(id)
         .orElseThrow(
             () -> new BpcException("User with id " + id + " not found!", ENTITY_NOT_FOUND));
+  }
+
+  @Transactional
+  public UserEntity update(UserDto userDto) {
+    try {
+      var id = userDto.getId();
+      userRepository.updateProfile(id, userDto.getAge(), userDto.getHeight(), userDto.getWeight());
+      log.info("User successfully updated!");
+      return userRepository.findById(id).orElseThrow(
+          () -> new BpcException("User with id " + id + " not found!", ENTITY_NOT_FOUND));
+
+    } catch (Exception e) {
+      throw new BpcException("Update operation failed!", GENERIC_ERROR_CODE);
+    }
   }
 }
