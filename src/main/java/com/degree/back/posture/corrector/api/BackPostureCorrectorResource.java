@@ -46,6 +46,12 @@ public class BackPostureCorrectorResource {
     return ResponseEntity.ok().body(result);
   }
 
+  @GetMapping(path = "/users/{id}")
+  public ResponseEntity<UserEntity> getUserById(@PathVariable("id") long id) {
+    var result = userService.findById(id);
+    return ResponseEntity.ok().body(result);
+  }
+
   @PutMapping(path = "/users/")
   public ResponseEntity<UserEntity> update(@RequestBody UserDto userDto) {
     var result = userService.update(userDto);
