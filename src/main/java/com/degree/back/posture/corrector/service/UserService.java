@@ -1,7 +1,8 @@
 package com.degree.back.posture.corrector.service;
 
-
-import static com.degree.back.posture.corrector.ErrorCode.*;
+import static com.degree.back.posture.corrector.ErrorCode.ENTITY_NOT_FOUND;
+import static com.degree.back.posture.corrector.ErrorCode.GENERIC_ERROR_CODE;
+import static com.degree.back.posture.corrector.ErrorCode.LOGIN_ERROR;
 
 import com.degree.back.posture.corrector.BpcException;
 import com.degree.back.posture.corrector.api.dto.LoginDto;

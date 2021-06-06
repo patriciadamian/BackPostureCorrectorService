@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/bpc")
-public class BackPostureCorrectorResource {
+public class UserAPI {
 
   private final UserService userService;
 
-  public BackPostureCorrectorResource(
+  public UserAPI(
       UserService userService) {
     this.userService = userService;
   }
