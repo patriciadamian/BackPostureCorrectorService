@@ -11,7 +11,8 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class JwtService {
 
-  private static final byte[] key = TextCodec.BASE64.decode("Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=");
+  private static final byte[] key =
+      TextCodec.BASE64.decode("Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=");
 
   static String create(UserEntity userEntity) {
     var currentDate = new Date();

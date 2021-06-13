@@ -16,7 +16,8 @@ import lombok.NoArgsConstructor;
 @Table(schema = "back_posture.corrector", name = "users")
 @NamedQuery(name = "UserEntity.getAll", query = "Select u from UserEntity u")
 @NamedQuery(name = "UserEntity.findByEmail", query = "Select u from UserEntity u where u.email =:EMAIL")
-@NamedQuery(name = "UserEntity.updateProfile", query = "Update UserEntity u set u.age = :AGE, u.height = :HEIGHT, u.weight = :WEIGHT where u.id = :ID")
+@NamedQuery(name = "UserEntity.updateProfile",
+    query = "Update UserEntity u set u.age = :AGE, u.height = :HEIGHT, u.weight = :WEIGHT where u.id = :ID")
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserEntity {

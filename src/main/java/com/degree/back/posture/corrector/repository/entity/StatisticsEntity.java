@@ -15,7 +15,8 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(schema = "back_posture.corrector", name = "statistics")
-@NamedQuery(name = "StatisticsEntity.getByUserId", query = "Select s from StatisticsEntity s where s.userId = :ID")
+@NamedQuery(name = "StatisticsEntity.getByUserId", query =
+    "Select s from StatisticsEntity s where s.userId = :ID")
 @NoArgsConstructor
 @AllArgsConstructor
 public class StatisticsEntity {
