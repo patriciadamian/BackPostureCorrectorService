@@ -4,6 +4,7 @@ import com.degree.back.posture.corrector.api.dto.LoginDto;
 import com.degree.back.posture.corrector.api.dto.RegisterDto;
 import com.degree.back.posture.corrector.api.dto.TokenDto;
 import com.degree.back.posture.corrector.api.dto.UserDto;
+import com.degree.back.posture.corrector.api.dto.UserSensorsDto;
 import com.degree.back.posture.corrector.repository.entity.UserEntity;
 import com.degree.back.posture.corrector.service.UserService;
 import java.util.List;
@@ -63,5 +64,12 @@ public class UserAPI {
     userService.delete(id);
     return ResponseEntity.noContent().build();
   }
+
+  @PostMapping(path = "/calibrate")
+  public ResponseEntity calibrate(@RequestBody UserSensorsDto userSensorsDto) {
+    var result = userService.updateSensors(userSensorsDto);
+    return ResponseEntity.ok().body(result);
+  }
+
 
 }

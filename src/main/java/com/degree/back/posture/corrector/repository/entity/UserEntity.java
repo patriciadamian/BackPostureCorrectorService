@@ -18,6 +18,10 @@ import lombok.NoArgsConstructor;
 @NamedQuery(name = "UserEntity.findByEmail", query = "Select u from UserEntity u where u.email =:EMAIL")
 @NamedQuery(name = "UserEntity.updateProfile",
     query = "Update UserEntity u set u.age = :AGE, u.height = :HEIGHT, u.weight = :WEIGHT where u.id = :ID")
+@NamedQuery(name = "UserEntity.updateSensors",
+    query = "Update UserEntity u set u.accelerometerX = :AccelerometerX, u.accelerometerY = :AccelerometerY, u.accelerometerZ = :AccelerometerZ, "
+        + "u.gyroscopeX = :GyroscopeX, u.gyroscopeY = :GyroscopeY, u.gyroscopeZ = :GyroscopeZ, "
+        + "u.magnetometerX = :MagnetometerX, u.magnetometerY = :MagnetometerY, u.magnetometerZ = :MagnetometerZ where u.id = :ID")
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserEntity {
@@ -46,6 +50,33 @@ public class UserEntity {
 
   @Column(name = "weight")
   private short weight;
+
+  @Column(name = "accelerometerx")
+  private String accelerometerX;
+
+  @Column(name = "accelerometery")
+  private String accelerometerY;
+
+  @Column(name = "accelerometerz")
+  private String accelerometerZ;
+
+  @Column(name = "gyroscopex")
+  private String gyroscopeX;
+
+  @Column(name = "gyroscopey")
+  private String gyroscopeY;
+
+  @Column(name = "gyroscopez")
+  private String gyroscopeZ;
+
+  @Column(name = "magnetometerx")
+  private String magnetometerX;
+
+  @Column(name = "magnetometery")
+  private String magnetometerY;
+
+  @Column(name = "magnetometerz")
+  private String magnetometerZ;
 
   public UserEntity(String firstName, String lastName, String email, String password) {
     this.firstName = firstName;
